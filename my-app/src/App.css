@@ -1,4 +1,13 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 .App {
+  min-height: 100vh;
+  margin: 0;
+  background-color: #cf6db5;
   text-align: center;
 }
 
@@ -14,14 +23,23 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #cf6db5;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: white;
+}
+
+.ToDoWrapper {
+  display: flex;
+  background-color: #cf6db5;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .App-link {
