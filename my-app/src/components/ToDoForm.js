@@ -1,19 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 
-export const ToDoForm = () => {
+export const ToDoForm = ({addTodo}) => {
+    const [value, setValue] = useState('');
     const handleSubmit = (e) => {
-        e.preventDefault()
-        const formData = new FormData(e.target);
-        const task = formData.get('task');
-        for(let [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
-        }
-    };
+        e.preventDefault();
 
+        addTodo(value);
+
+        setValue('');
+    }
   return (
     <form onSubmit={handleSubmit}>
-        <input name='task' type="text" className='Form-input' placeholder='Enter To-Do'></input> 
+        <input name='task' type="text" className='Form-input' value={value} placeholder='Enter To-Do' onChange={(e) => setValue(e.target.value)}>
+        </input> 
         <button type="submit" className='Todo-btn'>Add To-Do</button>        
     </form>
   )
