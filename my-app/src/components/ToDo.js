@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash,faPenToSquare,faSquare, faSquareCheck} from '@fortawesome/free-solid-svg-icons';
+import { EditToDoForm } from './EditToDoForm';
 /*
 Why task.task instead of task?
   In this case, the task prop is an object that has a property called task, which holds the actual string value of the task. Therefore, to access the string value of the task, we need to use task.task.
@@ -12,12 +13,12 @@ What is such a syntax called?
   This syntax is called a ternary operator in JavaScript. It is a shorthand way of writing an if-else statement. The general syntax is condition ? expressionIfTrue : expressionIfFalse. In this case, it checks if the task property is truthy, and if so, it returns the value of task.task; otherwise, it returns an empty string.
 */
 
-export const ToDo = ({task, toggleComplete, deleteTodo}) => {
+export const ToDo = ({task, toggleComplete, deleteTodo, editToDo}) => {
   return (
     <div className='Todo'>
           <p onClick ={()=>toggleComplete(task.id)} className={`${task.completed ? 'completed' : ''}`}>{task.task}</p>
           <div className='delete-container'>  
-              <FontAwesomeIcon icon={faPenToSquare} className='edit-btn' />
+              <FontAwesomeIcon icon={faPenToSquare} className='edit-btn' onClick={()=> editToDo(task.id)}/>
               <FontAwesomeIcon icon={faTrash} className='delete-btn' onClick={()=>{deleteTodo(task.id)}}/>
               <FontAwesomeIcon 
               icon={task.completed ? faSquareCheck : faSquare} 
