@@ -20,6 +20,11 @@ props:
     Yes, in JavaScript's array map() method, the second parameter of the callback function is always the index of the current item being processed in the array. The first parameter is the current item itself, and the second parameter is its index. This allows you to access both the item and its position in the array when performing operations within the map() function.
   task prop:
     The task prop is passed to the ToDo component, which can be used to display the task in the UI.
+  What is the role of const?
+    The const keyword is used to declare a constant variable in JavaScript. Once a constant is assigned a value, it cannot be reassigned. This is useful for defining values that should remain unchanged throughout the execution of the program.
+  Is a constant basically a function?
+    No, a constant is not a function. It is a variable that holds a value that cannot be reassigned. A function, on the other hand, is a block of code designed to perform a particular task and can be called multiple times with different arguments. Constants are used to store values that should not change, while functions are used to perform actions or calculations.
+
 */
 
 export const ToDoWrapper = () => {
@@ -32,6 +37,9 @@ export const ToDoWrapper = () => {
     setTodos(todos.map(todo => 
       todo.id === id ? {...todo, completed: !todo.completed} : todo));
   };
+  const deleteTodo = id => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  }
   return (
     <div>
         <ToDoForm addTodo={addTodos} />
