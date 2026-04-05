@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { ToDoForm } from './ToDoForm'
 import { v4 as uuidv4 } from 'uuid';
 import { ToDo } from './ToDo';
+import { EditTodoForm } from './EditToDoForm';
 uuidv4();
 
 /*
@@ -47,8 +48,9 @@ export const ToDoWrapper = () => {
   return (
     <div>
         <ToDoForm addTodo={addTodos} />
-        {todos.map((todo, index) => (
-            <ToDo key={index} task={todo} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editToDo={editToDo} />
+          {
+            todos.map((todo, index) => (todo.isEditing ? (<EditTodoForm editTodo={editToDo} task={todo}/>) : 
+            (<ToDo key={index} task={todo} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editToDo={editToDo} />)
         ))}
     </div>
   )

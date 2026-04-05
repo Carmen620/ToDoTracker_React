@@ -1,7 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash,faPenToSquare,faSquare, faSquareCheck} from '@fortawesome/free-solid-svg-icons';
-import { EditToDoForm } from './EditToDoForm';
 /*
 Why task.task instead of task?
   In this case, the task prop is an object that has a property called task, which holds the actual string value of the task. Therefore, to access the string value of the task, we need to use task.task.
