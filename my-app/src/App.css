@@ -92,3 +92,7 @@ body {
   color: #ffffff;
   font-family: sans-serif;
 }
+
+.completed {
+  text-decoration: line-through;
+}
