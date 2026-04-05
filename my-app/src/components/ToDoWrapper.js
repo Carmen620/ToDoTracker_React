@@ -4,6 +4,23 @@ import { v4 as uuidv4 } from 'uuid';
 import { ToDo } from './ToDo';
 uuidv4();
 
+/*
+Array map()
+props:
+    A prop is a way to pass data from a parent component (ToDoWrapper) to a child component (ToDo). In this case, we are passing the task property of each todo item as a prop to the ToDo component, allowing it to display the task in the UI.
+  item:
+    The item in the array is represented by the variable todo, which is an object containing the properties id, task, completed, and isEditing. We are specifically passing the task property to the ToDo component as a prop.
+  Do you have to initialize arrays like in java? 
+    No, in JavaScript, you can initialize an array using the useState hook without needing to specify a type or size. For example, you can simply use const [todos, setTodos] = useState([]); to initialize an empty array for storing todo items.
+  key prop:
+    The key prop is set to the index of the item in the array, which helps React identify which items have changed, are added, or are removed. The array is the todos state variable, which is an array of todo objects. Each todo object has properties such as id, task, completed, and isEditing. The map() method is used to iterate over this array and render a ToDo component for each todo item, passing the task property as a prop to the ToDo component.
+  Where is index defined, so we can use it as a key prop?
+    The index is defined as the second parameter in the callback function of the map() method. When you use map(), it takes a callback function that receives two arguments: the current item (in this case, todo) and its index in the array. So, when we write todos.map((todo, index) => ...), the index variable is automatically assigned the value of the current index of the item being processed in the array.
+  So the second paramter of the map is always the index of the item in the array?
+    Yes, in JavaScript's array map() method, the second parameter of the callback function is always the index of the current item being processed in the array. The first parameter is the current item itself, and the second parameter is its index. This allows you to access both the item and its position in the array when performing operations within the map() function.
+  task prop:
+    The task prop is passed to the ToDo component, which can be used to display the task in the UI.
+*/
 
 export const ToDoWrapper = () => {
   const [todos, setTodos] = useState([]);
@@ -14,8 +31,9 @@ export const ToDoWrapper = () => {
   return (
     <div>
         <ToDoForm addTodo={addTodos} />
-        <ToDo />
-
+        {todos.map((todo, index) => (
+            <ToDo key={index} task={todo} />
+        ))}
     </div>
   )
 }
