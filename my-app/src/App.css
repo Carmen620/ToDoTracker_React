@@ -63,6 +63,13 @@ body {
   width: 140px;
 }
 
+.updateForm-input {
+  margin-top: 50px;
+}
+.updateTodo-btn {
+  margin-top: 50px;
+}
+
 .delete-container {
   display: flex;
   align-items: center;
