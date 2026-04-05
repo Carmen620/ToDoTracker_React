@@ -40,11 +40,15 @@ export const ToDoWrapper = () => {
   const deleteTodo = id => {
     setTodos(todos.filter(todo => todo.id !== id));
   }
+  const editToDo = id => {
+    setTodos(todos.map(todo => 
+      todo.id === id ? {...todo, isEditing: !todo.isEditing} : todo));
+  }
   return (
     <div>
         <ToDoForm addTodo={addTodos} />
         {todos.map((todo, index) => (
-            <ToDo key={index} task={todo} toggleComplete={toggleComplete} />
+            <ToDo key={index} task={todo} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editToDo={editToDo} />
         ))}
     </div>
   )
